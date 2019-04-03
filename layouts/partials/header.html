@@ -6,7 +6,8 @@
 	{{ with .Site.Params.name }}<meta name="author" content="{{ . }}">{{ end }}
 	{{ .Hugo.Generator }}
 	<title>{{ .Title }}{{ if not .IsHome }} &middot; {{ .Site.Title }}{{ end }}</title>
-    {{ "<!-- Stylesheets -->" | safeHTML }}
+	{{ "<!-- Stylesheets -->" | safeHTML }}
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic"/>
 	<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
     {{ $style := resources.Get "sass/main.scss" | toCSS (dict "targetPath" "css/style.css") | minify | fingerprint "sha512" }}
 	<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}"/>
