@@ -11,6 +11,9 @@ googleAnalytics = ""
 disqusShortname = ""
 
 [params]
+  #To Enable App Insights, uncomment and add your Instrumentation Key
+  # appInsightsInstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+
   # You can use Markdown syntax for urls [text](//url.to/source)
   # To create multi-line text in strings use the """example Text""" format
   #
