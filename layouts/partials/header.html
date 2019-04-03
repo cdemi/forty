@@ -8,7 +8,7 @@
 	<title>{{ .Title }}{{ if not .IsHome }} &middot; {{ .Site.Title }}{{ end }}</title>
     {{ "<!-- Stylesheets -->" | safeHTML }}
 	<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
-    {{ $style := resources.Get "css/main.css" | minify | fingerprint "sha512" }}
+    {{ $style := resources.Get "sass/main.scss" | toCSS (dict "targetPath" "css/style.css") | minify | fingerprint "sha512" }}
 	<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}"/>
 	<!--[if lte IE 9]><link rel="stylesheet" href="{{ "css/ie9.css" }}"/><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="{{ "css/ie8.css" }}"/><![endif]-->
@@ -18,7 +18,7 @@
 	{{ end }}
 
 	{{ "<!-- Custom Fonts -->" | safeHTML }}
-	<link href="{{ "css/font-awesome.min.css" | absURL }}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
 	{{ with .Site.Params.favicon }}
 	<link rel="shortcut icon" type="image/x-icon" href="{{ . | absURL }}">
