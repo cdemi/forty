@@ -9,9 +9,8 @@
     <!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
 
     {{ "<!-- Main JS -->" | safeHTML }}
-    {{ $js := resources.Get "js/main.js" | resources.Minify }}
-    {{ $secureJS := $js | resources.Fingerprint "sha256" }}
-    <script src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+    {{ $js := resources.Get "js/main.js" | minify | fingerprint "sha512" }}
+    <script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 
     {{ template "_internal/google_analytics_async.html" . }}
 
