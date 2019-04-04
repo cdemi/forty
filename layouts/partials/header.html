@@ -21,10 +21,7 @@
 	{{ "<!-- Custom Fonts -->" | safeHTML }}
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
-	{{ with .Site.Params.favicon }}
-	<link rel="shortcut icon" type="image/x-icon" href="{{ . | absURL }}">
-	<link rel="icon" type="image/x-icon" href="{{ . | absURL }}">
-	{{ end }}
+	{{ partial "header/favicons.html" . }}
 
 	{{ "<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->" | safeHTML }}
 	{{ "<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->" | safeHTML }}
